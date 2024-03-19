@@ -5,54 +5,12 @@ import { Button, Text, View, ScrollView,Platform} from 'react-native';
 import { render } from "react-dom";
 import { VictoryChart, VictoryLine, VictoryBar, Background, VictoryAxis, VictoryTheme, VictoryVoronoiContainer, VictoryTooltip} from 'victory-native';
 import * as VictoryWeb from 'victory'
+import {customStyle} from './App.styles'
+import { ChartScreen } from './src/components/ChartScreen/ChartScreen';
 
-const tooltip = Platform.OS === 'web' ? require('victory') : require('victory-native')
-tooltip.VictoryTooltip
-const data = [
-  { x: 1, y: 2 },
-  { x: 2, y: 3 },
-  { x: 3, y: 5 },
-  { x: 4, y: 4 },
-  { x: 5, y: 6},
-];
+
 const Stack = createNativeStackNavigator();
-const ChartScreen = ({navigation}) => {
-  return (
-    
-<VictoryChart events={[{
-            target: 'parent',
-            eventHandlers: {
-              onTouchEnd: () => {},
-            },
-          },
-        ]} containerComponent={<VictoryVoronoiContainer voronoiDimension="x" />}
 
-      >
-<VictoryAxis style={{ 
-    ticks: {stroke: "transparent"},
-    tickLabels: { fill:"transparent"}, 
-}} />
-<VictoryAxis dependentAxis style={{ 
-    grid: {stroke: "grey"}
-}} />
-        
-        <VictoryBar
-        barRatio={0.8}
-        cornerRadius={{ topLeft: 4}}
-          style={{ data: { fill: "#00a8e8" }, labels: { fontSize: 9}}}
-          data={data}
-          labels={({ datum }) => `x: ${datum.x}, y: ${datum.y}`}
-
-          labelComponent={Platform.OS === 'web' ? <VictoryWeb.VictoryTooltip dy={0} renderInPortal={false} centerOffset={{ x: 25 }}/> : <VictoryTooltip dy={0} renderInPortal={false} centerOffset={{ x: 25 }}/>}
-        />
-      </VictoryChart>
-
-
-
-      
-    
-  )
-}
 const HomeScreen = ({navigation}) => {
   return (
     <View>
