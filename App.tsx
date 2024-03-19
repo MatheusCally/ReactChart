@@ -25,7 +25,7 @@ const ChartScreen = ({navigation}) => {
               onTouchEnd: () => {},
             },
           },
-        ]} containerComponent={<VictoryVoronoiContainer />}
+        ]} containerComponent={<VictoryVoronoiContainer voronoiDimension="x" />}
 
       >
 <VictoryAxis style={{ 
