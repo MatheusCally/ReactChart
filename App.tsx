@@ -19,7 +19,13 @@ const Stack = createNativeStackNavigator();
 const ChartScreen = ({navigation}) => {
   return (
     
-<VictoryChart containerComponent={<VictoryVoronoiContainer />}
+<VictoryChart events={[{
+            target: 'parent',
+            eventHandlers: {
+              onTouchEnd: () => {},
+            },
+          },
+        ]} containerComponent={<VictoryVoronoiContainer />}
 
       >
 <VictoryAxis style={{ 
@@ -31,6 +37,7 @@ const ChartScreen = ({navigation}) => {
 }} />
         
         <VictoryBar
+        barRatio={0.8}
         cornerRadius={{ topLeft: 4}}
           style={{ data: { fill: "#00a8e8" }, labels: { fontSize: 9}}}
           data={data}
