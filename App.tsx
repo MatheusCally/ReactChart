@@ -1,11 +1,7 @@
+import { NavigationContainer } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import * as React from 'react';
-import {NavigationContainer} from '@react-navigation/native';
-import {createNativeStackNavigator} from '@react-navigation/native-stack';
-import { Button, Text, View, ScrollView,Platform} from 'react-native';
-import { render } from "react-dom";
-import { VictoryChart, VictoryLine, VictoryBar, Background, VictoryAxis, VictoryTheme, VictoryVoronoiContainer, VictoryTooltip} from 'victory-native';
-import * as VictoryWeb from 'victory'
-import {customStyle} from './App.styles'
+import { Button, Text, View } from 'react-native';
 import { ChartScreen } from './src/components/ChartScreen/ChartScreen';
 
 
@@ -13,13 +9,7 @@ const Stack = createNativeStackNavigator();
 
 const HomeScreen = ({navigation}) => {
   return (
-    <View>
-      <Button
-      title="Go to Jane's profile"
-      onPress={() =>
-        navigation.navigate('Profile', {name: 'Jane'})
-      }
-    />
+    <View style={{padding: 48}}>
         <Button
       title="Go to chart"
       onPress={() =>

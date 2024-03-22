@@ -1,9 +1,10 @@
 import { StyleSheet } from "react-native"
 
 export const Style = StyleSheet.create({
-    blue:{
-       backgroundColor: 'blue',
-       width: 100,
-       height: 100
+    header:{
+       borderWidth: 1,
+       borderColor: 'black',
+        margin: 16,
+        maxWidth: 1000
     }
  })
